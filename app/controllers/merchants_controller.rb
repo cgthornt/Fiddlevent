@@ -37,7 +37,9 @@ class MerchantsController < ApplicationController
       flash[:info] = "You must first create a merchant profile"
       return redirect_to new_merchant_path
     end
-    @merchant = current_user.merchant if @merchant.nil?
+    if @merchant.nil?
+      @merchant = Merchant.includes(:events, :locations).where(:user_id => current_user.id).first
+    end
   end
   
 end

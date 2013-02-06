@@ -1,6 +1,6 @@
 class FilterSetsController < ApplicationController
   load_and_authorize_resource
-  add_breadcrumb "Profile", :users_path
+  add_breadcrumb "Merchant Profile", :merchant_profile_path
 
   def create
     @filter_set.create_filters!(params[:fid])
@@ -28,11 +28,11 @@ class FilterSetsController < ApplicationController
   end
   
   def new
-    
     params[:fid] = {:null => 'blank'}
   end
   
   def show
+    render :action => :edit
   end
   
   def destroy

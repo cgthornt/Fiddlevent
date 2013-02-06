@@ -14,14 +14,14 @@
     </div>
   </div>
 
-  <% if @merchant.locations.count == 0 %>
+  <% if !@merchant.locations.any? %>
     <div class="span8" style="text-align:center">
       <div class="alert">
       <b>You must first create a location before you can create any events.</b>
       <%= link_to 'Create one Now', new_location_path %>
       </div>
     </div>
-  <% elsif @merchant.filter_sets.count == 0 %>
+  <% elsif !@merchant.filter_sets.any? %>
     <div class="span8" style="text-align:center">
       <div class="alert">
       <b>You must first create a filter set before you can create any events.</b>
@@ -31,11 +31,11 @@
   <% else %>
     <div class="span4">
       <h2>Upcoming Events <small><%= link_to 'create', new_event_path %></small></h2>
-      <% if @upcoming_events.count == 0 %>
+      <% unless @merchant.events.upcoming.any? %>
       <p>You have no upcoming events.</p>
       <% else %>
       <ul>
-        <% @upcoming_events.each do |event| %>
+        <% @merchant.events.upcoming.each do |event| %>
         <li><%= link_to event.name, event %></li>
         <% end %>
       </ul>
@@ -45,11 +45,11 @@
     
     <div class="span4">
       <h2>My Locations <small><%= link_to 'create', new_location_path %></small></h2>
-      <% if @locations.count == 0 %>
+      <% unless @merchant.locations.any? %>
         <p>You have not defined any locations.</p>
       <% else %>
         <ul style="margin-left:20px;margin-bottom:15px;">
-        <% @locations.each do |loc| %>
+        <% @merchant.locations.each do |loc| %>
           <li><%= link_to loc.name, {:controller => :locations, :action => :edit, :id => loc} %> <em><%= loc.address %></em></li>
         <% end %>
         </ul>

@@ -10,10 +10,6 @@ en:
       # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "Please review the problems below:"
-    hints:
-      merchant:
-        name: The name that users will associate your events with
-        description: A brief description of what you do.
     # Labels and hints examples
     # labels:
     #   defaults:

@@ -5,7 +5,7 @@
  *
  *= require form
  *= require cart
- *= require jquery.ui.all
+ *= require jquery.ui.datepicker
 */
 
 html {
@@ -16,14 +16,12 @@ body {
   padding-top: 60px;
    padding-bottom: 0px;
    background: image_url('bg-pattern.png');
-
 }
 
 
 #content {
    padding: 20px 20px 0px 20px;
    background: #fff;
- 
 }
 
 
@@ -43,11 +41,12 @@ body {
   border-bottom: 1px solid #eee;
   padding-bottom: 0px;
   margin-bottom: 1px;
+  margin-top: 0;
   height: auto;
   h1 {
    font-size: 28px;
-   margin-bottom: 0px;
-   padding-bottom: 0px;
+   margin: 0;
+   padding-top: 0px;
    font-weight: normal;
   }
 }
@@ -122,9 +121,6 @@ body {
     cursor: hand;
     cursor: pointer;
   }
-  
-  
-  
 }
 
 .event_row {
@@ -133,4 +129,23 @@ body {
   float:left;
   padding-right: 5px;
  }
+}
+
+#devise-links {
+  a {
+    margin-right: 7px;
+  }
+}
+
+footer {
+  p {
+    margin-bottom: 0;
+  }
+  hr {
+    margin-bottom: 5px;
+  }
+  text-align: center;
+  color: #666;
+  font-size: 12px;
+  margin-bottom: 10px;
 }

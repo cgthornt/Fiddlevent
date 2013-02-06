@@ -7,12 +7,9 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => @events }
-    end
+    @merchant = current_user.merchant
+    @report = Report::Events.new(params[:report_events])
+    @report.scope { Event.where(:merchant_id => @merchant.id) }
   end
 
   # GET /events/1

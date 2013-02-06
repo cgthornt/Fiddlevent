@@ -7,7 +7,17 @@
 //= require defs
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.all
+
+/**
+ * jQuery UI plugins
+ */
+//= require jquery.ui.datepicker
+//= require jquery.ui.sortable
+//= require jquery.ui.droppable
+
+// Backwards compatibility
+
+//= require browser_compatibility
 //= require twitter/bootstrap
 //= require_tree ./jquery_plugins
 //= require_tree ./plugins
@@ -208,10 +218,10 @@ $(function() {
     
   });
   
-  $(".datetime-range .datetimerange-time-start, .datetime-range .datetimerange-time-stop").change(function() {
-    console.log("Time Updated!");
+  $(".datetime-range .datetimerange-time-start, .datetime-range .datetimerange-time-stop").on('change', function() {
+    // console.log("Time Updated!");
     container = $(this).parent().parent().parent();
-    console.log(container);
+    // console.log(container);
     updateHiddenDateTime(container);
   });
   

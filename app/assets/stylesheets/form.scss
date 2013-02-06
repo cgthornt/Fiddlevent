@@ -38,3 +38,21 @@ textarea.wysiwyg {
   width: 600px;
   height: 200px;
 }
+
+form.form-horizontal {
+  font-size: 13px;
+  input[type="file"] {
+    line-height: normal;
+    height: auto;
+  }
+}
+
+/** Change required label **/
+form.simple_form {
+  label.required {
+    abbr[title] {
+      border-bottom: none;
+      color: #B01010;
+    }
+  }
+}

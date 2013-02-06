@@ -120,8 +120,8 @@ function actuallyOpenEvent(eventId) {
     target.fadeOut(100, function() {
       target.show();
       loadingHtml =
-        '<div id="event-results-full" class="event-loading"><div id="event-details"><div class="row"><div class="span8"><div class="page-header" style="margin-bottom:0"><h1>Loading</h1></div></div></div>'
-      + '<div class="row"><div class="span6"><p><img src="/img/loading.gif"> Loading...</p></div></div></div>';
+        '<div id="event-results-full" class="event-loading"><div id="event-details"><div class="span8"><div class="page-header" style="margin-bottom:0"><h1>Loading</h1></div></div>'
+      + '<div class="span6"><p><img src="/img/loading.gif"> Loading...</p></div></div>';
       
       target.html(loadingHtml);
       $.ajax({
@@ -132,17 +132,20 @@ function actuallyOpenEvent(eventId) {
         target.fadeIn(200, function() {
           target.html(thtml);
           autoloadGmaps();
+          makeClickable();
         }); 
         
       }).fail(function(jqXHR, textStatus) {
         console.log(jqXHR);
         target.html(modalFailureHTML);
       }).always(function() {
+        
       });
     });
 }
 
 function closeEvent() {
+  console.log('Closing Event!');
   $("#event-result-full").fadeOut(200, function() {
     target = $("#results-container");
     target.html(originalHtml);
@@ -151,6 +154,44 @@ function closeEvent() {
     
     // Remove hash
     window.location.hash = "";
+  
+    makeClickable();
+  });
+}
+
+function makeClickable() {
+  $('.search-result').click(function() {
+    event_id = $(this).data('eid');
+    openEvent(event_id);
+  });
+  
+  // When we click the "cancel" button when we're viewing an event
+  $('#event-result-close').click(function() {
+    closeEvent();
+  });
+  
+  // If someone clicks the like button while viewing an event
+  $("#event-like-button").click(function() {
+    addItemToCart($(this).data("id"));
+    $(this).html("Added!");
+    $(this).fadeOut();
+    return false;
+  });
+  
+  // Unlikes an event
+  $("#event-unlike-button").click(function() {
+    console.log('Unlike!');
+    removeItemFromCart($(this).data("id"));
+    $(this).html("Removed");
+    $(this).fadeOut();
+    return false;
+  });
+  
+  
+  $(".rm-event").click(function(e) {
+    e.stopPropagation();
+    event_id = $(this).data('id');
+    removeItemFromCart(event_id);
   });
 }
 
@@ -172,40 +213,10 @@ $(function() {
   enableSortable();
   enableDragNDrop();
   
-  $('.search-result').on('click', function() {
-    event_id = $(this).data('eid');
-    openEvent(event_id);
-  });
-  
-  // When we click the "cancel" button when we're viewing an event
-  $('#event-result-close').on('click', function() {
-    closeEvent();
-  });
+  makeClickable();
   
   
-  // If someone clicks the like button while viewing an event
-  $("#event-like-button").on('click', function() {
-    addItemToCart($(this).data("id"));
-    $(this).html("Added!");
-    $(this).fadeOut();
-    return false;
-  });
-  
-  // Unlikes an event
-  $("#event-unlike-button").on('click', function() {
-    removeItemFromCart($(this).data("id"));
-    $(this).html("Removed");
-    $(this).fadeOut();
-    return false;
-  });
-  
-  
-  $(".rm-event").on('click', function(e) {
-    e.stopPropagation();
-    event_id = $(this).data('id');
-    removeItemFromCart(event_id);
-    
-  });
+
   
   // Set a cookie so that we know whether to show the narrow resutls or liked events
   $("#sidebar-tab-narrow").click(function() {  $.cookie("sTab", "filter"); });

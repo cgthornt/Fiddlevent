@@ -4,7 +4,7 @@ tmp/*
 public/assets
 
 # Komodo IDE
-*.komodoproject
+# *.komodoproject # Might be useful to save project
 .komodotools
 
 

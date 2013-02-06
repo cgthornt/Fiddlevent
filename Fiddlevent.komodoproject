@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Komodo Project File - DO NOT EDIT -->
+<project id="e891d7cb-5a6f-9e4e-bbfe-c926de28c1d9" kpf_version="5" name="Fiddlevent.komodoproject">
+<livefolder id="a564085d-6e09-9c48-91ba-34ad9e828181" idref="a2879e86-cc5b-1043-ae94-2c3dc4e491b2" name="views" url="app/views">
+</livefolder>
+<livefolder id="de5da348-e6a7-ce48-96c1-1beeeb5376cc" idref="a2879e86-cc5b-1043-ae94-2c3dc4e491b2" name="models" url="app/models">
+</livefolder>
+<livefolder id="f412115c-a118-114b-b1c0-9096fcfc664f" idref="a2879e86-cc5b-1043-ae94-2c3dc4e491b2" name="controllers" url="app/controllers">
+</livefolder>
+<livefolder id="1df6c109-b8f8-0743-a1ed-3057a953436f" idref="a4f8cdf5-1ed9-124e-97fa-7b312d183756" name="helpers" url="app/helpers">
+</livefolder>
+<livefolder id="938eb368-ae04-f641-913c-b0fd3471a1ce" idref="a4f8cdf5-1ed9-124e-97fa-7b312d183756" name="lib" url="lib">
+</livefolder>
+<livefolder id="a36134fe-5e71-7e4e-9911-037236729666" idref="a4f8cdf5-1ed9-124e-97fa-7b312d183756" name="assets" url="app/assets">
+</livefolder>
+<livefolder id="5e8b6e1a-0f56-754e-b424-af3ff887ed66" idref="e891d7cb-5a6f-9e4e-bbfe-c926de28c1d9" name="fiddlevent" url="">
+</livefolder>
+<folder id="a2879e86-cc5b-1043-ae94-2c3dc4e491b2" idref="e891d7cb-5a6f-9e4e-bbfe-c926de28c1d9" name="MVC">
+</folder>
+<folder id="a4f8cdf5-1ed9-124e-97fa-7b312d183756" idref="e891d7cb-5a6f-9e4e-bbfe-c926de28c1d9" name="Misc">
+</folder>
+</project>

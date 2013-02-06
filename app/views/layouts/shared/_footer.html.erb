@@ -1,8 +1,5 @@
-  <footer>
-    
-    <p style="float:right">
-      Timezone set to <%= link_to(Time.zone.name, {:controller => '/welcome', :action => :set_timezone}, :class => 'remote-modal') %>   <!-- <a href="#" class="change-timezone remote-modal-open" data-modal-id="timezone-change" style="margin-left:5px" rel="tooltip" title="Change Timezone"><%= Time.zone.name %></a> -->
-    </p>
-		<p>&copy; Copyright 2012 Fiddlevent &middot; All Rights Reserved</p>
-
-	</footer>
+<footer>
+  <hr>
+  <p>&copy; Copyright <%= Date.today.year %> Fiddlevent &middot; All Rights Reserved</p>
+  <p>Timezone set to <%= link_to(Time.zone.name, {:controller => '/welcome', :action => :set_timezone}, :class => 'remote-modal', :title => 'Change Timezone') %></p>
+</footer>

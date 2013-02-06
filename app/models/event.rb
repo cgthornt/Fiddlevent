@@ -12,7 +12,7 @@ class Event < ActiveRecord::Base
   
   IMAGE_STYLES = { :medium => '300x300#', :small => '170x170#', :thumbnail => '80x80#', :tiny => '50x50#' }
   
-  scope :upcoming, where("`events`.`time_stop` >= NOW()")
+  scope :upcoming, lambda{ where("`events`.`time_stop` > ?", Time.zone.now) }
   
   def ensure_datetime_range
     unless time_start.blank? or time_stop.blank?

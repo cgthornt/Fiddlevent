@@ -1,7 +1,7 @@
 <div class="row-fluid">
   <div class="span12">
     <p class="alert alert-info">
-      Filter sets are what allows us to match your events when users search using the left sidebar.
+      Filter sets allow us to match your events when users search using the left sidebar.
       <b>It's more benificial to have a less and percise number of items than selecting all of them.</b>
       <br>
       Filter sets are not displayed to the public.
@@ -12,15 +12,11 @@
 
 <div class="row-fluid">
   <div class="span3">
-    <div class="well">
-      <h4>Filters</h4>
+    <h4>Select Filters</h4>
+    <div class="well" style="padding:3px">
+      <%= render :partial => 'search/sidebar_filter' %>
     </div>
   </div>
-  
-  <div class="span9">
-
-  </div>
-  
   
   <div class="span9">
     <%= form.input :name %>

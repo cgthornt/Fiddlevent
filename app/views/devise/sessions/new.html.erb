@@ -1,48 +1,15 @@
-<div class="row">
-  <div class="span12">
-    <h2>Login to Fiddlevent</h2>
-    <p>
-    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
-      <fieldset>
-        <legend></legend>
-        <div class="control-group">
-          <%= f.label :email, :class => 'control-label' %>
-          <div class="controls">
-            <%= f.email_field :email %>
-          </div>
-        </div>
-      
-        <div class="control-group">
-          <%= f.label :password, :class => 'control-label' %>
-          <div class="controls">
-            <%= f.password_field :password %>
-          </div>
-        </div>
-      
-        <% if devise_mapping.rememberable? -%>
-          <div class="control-group">
-            <div class="controls">
-            <%=  %>
-            <%= f.label :remember_me, (f.check_box :remember_me) + 'Remember Me', :class => 'checkbox' %>
-            </div>
-          </div>
-        <% end -%>  
-        
-        
-        <div class="form-actions">
-          
-          <%= f.submit "Sign in", :class => 'btn btn-primary' %>
-          <%= link_to "Cancel", {:controller => "/welcome", :action => :index}, :class => 'btn' %>
-        </div>
-      </fieldset>
-    <% end %>
-      
-    
-      <p>
-        <%= render :partial => "devise/shared/links" %>
-      </p>
-    </p>
-      
-      
+<%= page_title 'Sign In' %>
+
+<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :email, :required => false, :autofocus => true %>
+    <%= f.input :password, :required => false %>
+    <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
   </div>
-</div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sign in" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

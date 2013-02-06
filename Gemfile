@@ -53,3 +53,5 @@ gem "less-rails-bootstrap", '2.1.1'
 # Awesome Nested Set GUI
 gem 'haml'
 gem 'the_sortable_tree'
+
+gem 'datagrid'

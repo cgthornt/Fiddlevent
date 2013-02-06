@@ -13,7 +13,7 @@ class FilterSet < ActiveRecord::Base
     return if param_filters.blank?
     filters.clear
     param_filters.each do |filter_id,enabled|
-      if enabled == "1" and filter_id != "1"
+      if enabled == "1"
         filters << Filter.find(filter_id)
       end
     end

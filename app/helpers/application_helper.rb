@@ -3,6 +3,9 @@ module ApplicationHelper
   
   include WidgetHelper
   
+  def merchant_profile_path
+    return url_for :controller => :merchants, :action => :profile
+  end
   
   def select_options_for_states
     State.select('id, name').all.collect{|s| [s.name, s.id]}
@@ -123,7 +126,7 @@ module ApplicationHelper
     return title
   end
   
-  def page_title(title, subheader = nil)
+  def page_title(title, subheader = nil, &block)
     @page_title = title
     html = '<div class="page-header"><h1>' + title
     html += " <small>#{subheader}</small" unless subheader.blank?
@@ -131,6 +134,7 @@ module ApplicationHelper
     content_for :page_title do
       raw(html)
     end
+    block.call if block_given?
   end
   
   def form_builder(model, &block)
