@@ -2,8 +2,8 @@ require 'bundler/capistrano'
 set :user, 'christopher'
 set :domain, 'cgthornt.com'
 
-set :scm, :subversion
-set :repository,  "https://svn.cgthornt.com/fiddlevent/trunk/"
+set :scm, :git
+set :repository,  "git@github.com:cgthornt/Fiddlevent.git"
 set :scm_verbose, true
 
 set :applicationdir, "/home/christopher/fiddlevent"
