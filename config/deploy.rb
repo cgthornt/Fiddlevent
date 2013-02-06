@@ -1,4 +1,6 @@
 require 'bundler/capistrano'
+require "rvm/capistrano"
+
 set :user, 'christopher'
 set :domain, 'cgthornt.com'
 
@@ -25,6 +27,8 @@ after "deploy:update_code", "deploy:load_from_remote"
 
 default_run_options[:pty] = true
 
+set :rvm_ruby_string, '1.9.3'
+set :rvm_type, :system
 
 
 # role :db,  "your slave db-server here"
@@ -38,7 +42,7 @@ after "deploy:restart", "deploy:cleanup"
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
   task :load_from_remote do
-    run "cd #{current_path} && bundle exec rake fiddle:load_from_remote RAILS_ENV=production"
+    run "cd #{latest_release} && bundle exec rake RAILS_ENV=production fiddle:load_from_remote"
   end
   task :start do ; end
   task :stop do ; end
