@@ -216,7 +216,7 @@ $(function() {
   });
   
     
-  $("a.remote-modal").live('click', function() {
+  $("a.remote-modal").on('click', function() {
     showRemoteModal($("#remote-modal-container"), $(this).attr('href'));
     return false; 
   });
@@ -228,7 +228,7 @@ $(function() {
   }) */
   
   
-  $(".remote-modal-open").live('click', function() {
+  $(".remote-modal-open").on('click', function() {
     console.log($(this).data('modal-id'));
     target = $("#remote-modal-" + $(this).data('modal-id'));
     theHtml = modalLoadingHTML;

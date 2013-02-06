@@ -172,19 +172,19 @@ $(function() {
   enableSortable();
   enableDragNDrop();
   
-  $('.search-result').live('click', function() {
+  $('.search-result').on('click', function() {
     event_id = $(this).data('eid');
     openEvent(event_id);
   });
   
   // When we click the "cancel" button when we're viewing an event
-  $('#event-result-close').live('click', function() {
+  $('#event-result-close').on('click', function() {
     closeEvent();
   });
   
   
   // If someone clicks the like button while viewing an event
-  $("#event-like-button").live('click', function() {
+  $("#event-like-button").on('click', function() {
     addItemToCart($(this).data("id"));
     $(this).html("Added!");
     $(this).fadeOut();
@@ -192,7 +192,7 @@ $(function() {
   });
   
   // Unlikes an event
-  $("#event-unlike-button").live('click', function() {
+  $("#event-unlike-button").on('click', function() {
     removeItemFromCart($(this).data("id"));
     $(this).html("Removed");
     $(this).fadeOut();
@@ -200,7 +200,7 @@ $(function() {
   });
   
   
-  $(".rm-event").live('click', function(e) {
+  $(".rm-event").on('click', function(e) {
     e.stopPropagation();
     event_id = $(this).data('id');
     removeItemFromCart(event_id);
@@ -212,7 +212,7 @@ $(function() {
   $("#sidebar-tab-events").click(function() {  $.cookie("sTab", "liked");  });
   
   // Clicking on a liked event
-  $(".liked-event").live('click', function(e) {
+  $(".liked-event").on('click', function(e) {
       openEvent($(this).data('id'));
   });
 });

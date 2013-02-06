@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.11'
 
-gem "mysql2", "~> 0.3.11"
-gem "json", "~> 1.6.4"
+gem "mysql2"
+gem "json"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -11,9 +11,9 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
-  gem 'libv8', '3.3.10.2'
+  gem 'libv8', '~> 3.11.8'
   gem 'less-rails'
- gem "therubyracer", :require => 'v8'
+  gem "therubyracer", :require => 'v8'
 end
 
 gem 'jquery-rails'
@@ -21,18 +21,20 @@ gem 'jquery-ui-rails'
 gem 'simple_form'
 
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.1'
-
 # Deploy with Capistrano
 gem 'capistrano'
 
-# Development mode is slowwww
 group :development do
-  gem 'rails-dev-boost', :git => 'git://github.com/thedarkone/rails-dev-boost.git', :require => 'rails_development_boost'
+  # Development mode is very slow, so the 'rails-dev-boost' gem makes development faster.
+  # The 'rb-fsevent' gem required for the rails dev boost
+  gem 'rails-dev-boost'
+  gem 'rb-fsevent', '~> 0.9.1'
+  
+  # To get rid of annoying "chunked" errors with ruby 1.9
+  gem 'thin' 
 end
 
-gem "devise", "~> 2.1.2"
+gem "devise"
 gem "cancan"
 gem 'awesome_nested_set'
 gem "recaptcha", :require => "recaptcha/rails"
@@ -41,7 +43,7 @@ gem "nokogiri"
 gem "kaminari"
 gem 'foreigner'
 
-gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem "paperclip"
 gem "rmagick"
 gem 'capistrano'
 gem "breadcrumbs_on_rails"

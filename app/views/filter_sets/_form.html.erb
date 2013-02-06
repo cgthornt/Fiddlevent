@@ -12,7 +12,9 @@
 
 <div class="row-fluid">
   <div class="span3">
-    <%= render :partial => 'search/sidebar' %>
+    <div class="well">
+      <h4>Filters</h4>
+    </div>
   </div>
   
   <div class="span9">
@@ -21,15 +23,8 @@
   
   
   <div class="span9">
-    <div class="control-group">
-      <%= form.left_label :name %>
-      <div class="controls"><%= form.text_field :name %></div>
-    </div>
-    <div class="control-group">
-      <%= form.left_label :description %>
-      <div class="controls">
-        <%= form.text_area :description %>
-        <p class="help-block">A description is more for your reference as filter sets are not displayed to the public</p>
-      </div>
-    </div>
+    <%= form.input :name %>
+    <%= form.input :description %>
+  </div>
+</div>
 
