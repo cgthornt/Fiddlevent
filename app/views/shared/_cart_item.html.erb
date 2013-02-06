@@ -1,0 +1,5 @@
+<li class="liked-event liked-event-<%= cart_item.id %>" data-id="<%= cart_item.id %>">
+  <a href="#del" class="rm-event" data-id="<%= cart_item.id %>" title="Remove Event"><i class="icon-trash"></i></a>
+  <%= image_tag(cart_item.event_image.url(:tiny)) %> <h4><%= summarize(cart_item.name, 30) %></h4>
+  <div class="liked-event-desc"><%= summarize(cart_item.description, 73) %></div>
+</li>

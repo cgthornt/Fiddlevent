@@ -1,0 +1,94 @@
+/**
+ *= require sidebar
+ */
+
+.filter-sidebar {
+  position: fixed;
+  z-index: 1;
+  width: 250px;
+}
+
+.event-time-2 {
+  padding-left: 0px;
+  padding-top: 10px;
+}
+
+.event-loading {
+  p {
+    margin: 20px;
+  }
+}
+
+.search-result {
+  height: 90px;
+  padding: 5px;
+  border-bottom: 1px #ccc solid;
+  cursor: pointer;
+  cursor: hand;
+  
+    h3 small {
+      float: right;
+    }
+  .result-icon {
+    width: 80px;
+    padding-top: 5px;
+    float: left;
+    margin-right: 10px;
+  }
+  
+  .search-summary {
+    height: 40px;
+    overflow: hidden;
+  }
+  
+  .search-actions {
+    color: #999;
+  }
+
+}
+
+.search-result:hover {
+  background: #F5F5F5;
+}
+
+.search-paginator {
+  text-align: center;
+}
+
+
+.search-prompt {
+  width: 650px;
+  margin: 30px auto 0 auto;
+  
+  input {
+    height: 25px;
+    width: 500px;
+    font-size: 16px;
+  }
+  button {
+    height: 35px;
+  }
+  .prompt-label {
+    color: #666;
+    font-size: 14px;
+    padding-bottom: 5px;
+    padding-left: 3px;
+  }
+}
+.filter-daterange {
+  .datetime-date {
+    width: 120px !important;
+  }
+}
+
+#results-container {
+  min-height: 450px;
+}
+
+// When a user clicks an event for more details
+/*
+#event-details {
+  border: 1px solid #eee;
+  padding: 5px;
+  box-shadow: 0 0 5px #888;
+} */

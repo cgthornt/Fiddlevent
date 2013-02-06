@@ -1,0 +1,33 @@
+/**
+ * Bootstrap and mixins
+ *
+ * Only change this file if you plan on doing some mixin or else it will be a pain to reload
+ */
+
+@import "twitter/bootstrap/bootstrap";
+@import "twitter/bootstrap/responsive";
+
+#flash-messages {
+  .alert-notice {
+    .alert-info;
+  }
+}
+
+#navigation {
+    background: @grayLighter;
+}
+
+#content {
+   .box-shadow(0 0 5px #888);
+}
+
+#errorExplanation {
+  .alert;
+  .alert-error;
+  h2 {
+    display: none;
+  }
+  p {
+    font-weight: bold;
+  }
+}

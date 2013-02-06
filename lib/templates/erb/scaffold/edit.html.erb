@@ -1,0 +1,11 @@
+<h1 class="page-title">Editing <%= singular_table_name %></h1>
+<%%= form_for(@<%= singular_table_name %>, :html => {:class => 'form-horizontal' }) do |form| %>
+  <%%= form.error_messages %>
+    <fieldset>
+    <%%= render :partial => 'form', :object => form %>
+    <div class="form-actions">
+      <%%= form.submit, :class => 'btn btn-primary' %>
+      <%%= link_to 'Back', @<%= singular_table_name %>, :class => 'btn' %>
+    </div>
+  </fieldset>
+<%% end %>

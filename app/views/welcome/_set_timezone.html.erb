@@ -1,0 +1,16 @@
+<div class="modal-header">
+  <a class="close" data-dismiss="modal">&times;</a>
+  <h3>Change Timezone</h3>
+</div>
+<%= form_tag(:controller => 'welcome', :action => 'set_timezone') do |f| %>
+<div class="modal-body">
+  <%# debug Time.zone %>
+  <label for="timezone">Timezone</label>
+  <%= time_zone_select :nan, :time_zone, ActiveSupport::TimeZone.us_zones, :default => Time.zone.name %>
+</div>
+<div class="modal-footer">
+  <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+  <%= submit_tag('Update Timezone', :class => 'btn btn-primary') %>
+</div>
+
+<% end %>

@@ -1,0 +1,26 @@
+<div class="datetime-range" data-id="<%= o_id %>" data-object="<%= obj_name %>" data-start="<%= attr_start %>" data-stop="<%= attr_stop %>">
+  
+  <!-- From Range -->
+  <div class="input-prepend">
+    <span class="add-on"><i class="icon-calendar"></i></span><%= text_field(o_id, "date_#{attr_start}", {:class => 'datetime-date datetimerange-date-start', 'placeholder' => 'Start Date', :value => start_date}) %>
+  </div>
+  <div class="input-prepend">
+    <span class="add-on"><i class="icon-time"></i></span><%= text_field(o_id, "time_#{attr_start}", {:class => 'datetime-time datetimerange-time-start', 'placeholder' => 'Start Time', :value => start_time}) %>
+  </div>
+  
+  <span class="datetime-to">to</span>
+  
+  <!-- To Range -->
+  <div class="input-prepend">
+    <span class="add-on"><i class="icon-time"></i></span><%= text_field(o_id, "time_#{attr_stop}", {:class => 'datetime-time datetimerange-time-stop', 'placeholder' => 'End Time', :value => stop_time}) %>
+  </div>
+  <div class="input-prepend datetime-end" id="end_<%= "#{o_id}_date_#{attr_stop}" %>">
+    <span class="add-on"><i class="icon-calendar"></i></span><%= text_field(o_id, "date_#{attr_stop}", {:class => 'datetime-date datetimerange-date-stop', 'placeholder' => 'End Date', :value => stop_date}) %>
+  </div>
+  
+  <a href="#" class="change-timezone remote-modal-open" data-modal-id="timezone-change" style="margin-left:5px" rel="tooltip" title="Change Timezone"><%= Time.zone.now.zone %></a>
+
+  
+  <%= hidden_field(obj_name, attr_start) %>
+  <%= hidden_field(obj_name, attr_stop) %>
+</div>

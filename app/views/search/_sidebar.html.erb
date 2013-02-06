@@ -1,0 +1,32 @@
+<div class="well sidebar-nav filter-sidebar">
+    <input type="hidden" name="query" value="<%= params[:query] %>">
+    <ul class="nav nav-list">
+      <div>
+    <% Filter.each_with_level(Filter.root.descendants) do |filter,level| %>
+      <% if level == 1 %>
+        <%= hidden_field("fhide", filter.id, :value => ((params[:fhide] && params[:fhide][filter.id.to_s] == "1") ? "1" : "0"), :class => 'filter-flag', 'data-id' => filter.id) %>
+        </div>
+        <li class="nav-header"><span id="toggle-filter-<%= filter.id %>" rel="tooltip" title="Select / Deselect All" class="toggle-filter" data-id="<%= filter.id %>" data-original-text="<%= filter.name %>"><%= filter.name %></span></li>
+        <div class="filter-children-<%= filter.id %>">
+      <% else %>
+        <li><label for="fid_<%= filter.id %>"><%= check_box('fid', filter.id, :checked => filter_checked(filter.id), :class => "filter-chk-parent-#{filter.parent_id}") %> <a><%= filter.name %></a></label></li>
+      <% end %>
+    <% end %>
+      </div>
+
+    <% if params[:controller] == 'search' %>
+      <li class="divider"></li>
+      <li class="nav-header">Date Range</li>
+      <li class="filter-daterange">
+        <div class="input-prepend"><span class="add-on"><i class="icon-calendar"></i></span><%= text_field('f', 'time_start', :class => 'datetime-date dstart', :placeholder => 'Start Date', :value => @date_start) %></div>
+      </li>
+    <% end %>
+    
+    <% unless params[:query].blank? %>
+      <li class="divider"></li>
+      <li class="sidebar-submit">
+        <button type="submit" class="btn">Update</button>
+      </li>
+    <% end %>
+    </ul>
+</div>

@@ -1,0 +1,11 @@
+<%= page_title 'Edit Filter Set', @filter_set.name %>
+<%= horizontal_form_for(@filter_set) do |f| %>
+  <%=f.error_messages %>
+  <%= render :partial => 'form', :object => f %>
+  <div class="form-actions">
+    <%= f.submit "Edit Filter", :class => 'btn btn-primary' %>
+    <%= link_to 'Cancel', current_user, :class => 'btn' %>
+    <%= link_to 'Delete', @filter_set, {:class => 'btn btn-danger', :style => 'float:right', :method => 'delete', :confirm => 'Are you sure you want to delete this filter set? This may cause some events to be unsearchable'} %>
+  </div>
+  </div></div>
+<% end %>

@@ -1,0 +1,10 @@
+<li> <%= link_to filteritem.name, filteritem %> </li>
+  <% if(!filteritem.children.blank?) %>
+    
+      <ul>
+        <%= render :partial => "filteritem",
+                  :collection => filteritem.children%>
+      </ul>
+    
+      <%end%>
+      

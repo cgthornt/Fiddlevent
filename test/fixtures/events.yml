@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  merchant_id: 1
+  location_id: 1
+  name: MyString
+  description: MyText
+  time_start: 2012-02-01 14:57:54
+  time_stop: 2012-02-01 14:57:54
+
+two:
+  merchant_id: 1
+  location_id: 1
+  name: MyString
+  description: MyText
+  time_start: 2012-02-01 14:57:54
+  time_stop: 2012-02-01 14:57:54

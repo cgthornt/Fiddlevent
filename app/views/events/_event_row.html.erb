@@ -1,0 +1,6 @@
+<div class= "event_row" >
+  <img src= "http://placehold.it/80x80">
+    <h3> <%=event_row.name %> <small> <%=event_row.time_to_s%> </small> </h3>
+    <p class= "event_row_description"> <%= truncate(sanitize(event_row.description, :tags => %w()), :length => 225) %> </p>
+    
+</div>

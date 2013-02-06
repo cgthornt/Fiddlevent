@@ -1,0 +1,11 @@
+<%= page_title "View Filter", @filter.name %>
+
+<p> <b> Name: </b> <%= @filter.name %> <br>
+<b> Parent: </b> <%= @filter.parent.nil? ? "None": link_to(@filter.parent.name, @filter.parent) %> <br>
+<b> Children: </b> <% if(@filter.children.blank?)%> None <% else %> <%= raw @filter.children.map{|f| link_to (f.name ,f)}.join(", ")%> <%end%> <br>
+<b> Description: </b> <%= @filter.description %> </p>
+
+<div class="form-actions">
+  <%= link_to 'Edit', {:action => :edit, :id => @filter.id}, :class => 'btn btn-primary' %>
+  <%= link_to 'Cancel', filters_path, :class => 'btn' %>
+</div>

@@ -1,0 +1,10 @@
+<%= page_title "Create Filter" %>
+
+<%= horizontal_form_for @filter do |f| %>
+  <%=f.error_messages %>
+  <%= render :partial => "form", :object => f %>
+<div class="form-actions">
+  <%= f.submit "Create Filter", :class => 'btn btn-primary' %>
+  <%= link_to 'Cancel', filters_path, :class => 'btn' %>
+</div>
+<%end%>

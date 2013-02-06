@@ -1,0 +1,68 @@
+<%= content_for :javascripts do %>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCJNx1Kp1iBYr_Ccs2rpq4Ry2Cuv_DTCIc&sensor=false"></script>
+  <%= javascript_include_tag 'maps' %>
+<% end %>
+
+<div class="row">
+  <div class="span2" style="padding-top:10px">
+    <%= image_tag @merchant.merchant_image.url(:small) %>
+  </div>
+  
+  <div class="span10">
+    
+    <!-- Page Title -->
+    <div class="row">
+      <div class="span10">
+        <%= page_title @merchant.name %>
+        
+        <!-- Description -->
+        <p>
+          <% if @merchant.description.blank? %>
+            <em>No description provided</em>
+          <% else %>
+            <%= @merchant.description %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+    
+    
+    <div class="row">
+      <div class="span5">
+        <!-- Upcoming Events -->
+        <h3>Upcoming Events</h3>
+        <% if @upcoming.count == 0 %>
+          There are no upcoming events
+        <% else %>
+          <ul>
+          <% @upcoming.each do |event| %>
+            <li><%= event.name %></li>
+          <% end %>
+          </ul>
+        <% end %>
+        
+      </div>
+      
+      <!-- Map -->
+      <div class="span5">
+        <h3>Locations</h3>
+      </div>
+  </div>
+    
+    
+  </div>
+</div>
+
+<div class="row">
+  <div class="span12">
+    <div class="form-actions">
+      <%= link_to 'Back', :back, :class => 'btn' %>
+      
+      <% if can? :edit, @merchant %>
+        <div style="float:right">
+          <%= link_to 'Edit', {:action => :edit, :id => @merchant.id}, :class => 'btn btn-primary' %>
+        </div>
+    <% end %>
+    </div>
+  </div>
+</div>

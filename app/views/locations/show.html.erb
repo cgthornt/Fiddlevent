@@ -1,0 +1,74 @@
+<%= content_for :javascripts do %>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCJNx1Kp1iBYr_Ccs2rpq4Ry2Cuv_DTCIc&sensor=false"></script>
+  <%= javascript_include_tag 'maps', :smartinfowindow %>
+<% end %>
+
+<div class="row">
+  <div class="span2" style="padding-top:10px">
+    <%= image_tag @location.location_image.url(:small) %>
+    <p style="text-align:center;margin-top:15px;font-weight:bold">
+      <%= @location.address %><br>
+      <%= @location.address_2 + "<br>" unless @location.address_2.blank? %>
+      <%= "#{@location.city}, #{@location.state.name} #{@location.zip}" %>
+    </p>
+  </div>
+  
+  <div class="span10">
+    
+    <!-- Page Title -->
+    <div class="row">
+      <div class="span10">
+        <%= page_title @location.name, "location by " + link_to(@location.merchant.name, @location.merchant) %>
+      </div>
+    </div>
+    
+    
+    <div class="row">
+      <div class="span6">
+        
+        <!-- Description -->
+        <p>
+          <% if @location.description.blank? %>
+            <em>No description provided</em>
+          <% else %>
+            <%= @location.description %>
+          <% end %>
+        </p>
+        
+        <!-- Upcoming Events -->
+        <h3>Upcoming Events at this location</h3>
+        <% if @location.events.upcoming.count == 0 %>
+          <p><em>There are no upcoming events for this location</em></p>
+        <% else %>
+          <p>Showing upcoming events:</p>
+          <%= render :partial => "events/event_row", :collection => @search.get%>
+        <% end %>
+        
+      </div>
+      
+      <!-- Map -->
+      <div class="span4">
+        <div class="well">
+          <div class="map-container" style="height:200px"></div>
+        </div>
+
+      </div>
+  </div>
+    
+    
+  </div>
+</div>
+
+<div class="row">
+  <div class="span12">
+    <div class="form-actions">
+      <%= link_to 'Back', :back, :class => 'btn' %>
+      
+      <% if can? :edit, @location %>
+        <div style="float:right">
+          <%= link_to 'Edit', {:action => :edit, :id => @location.id}, :class => 'btn btn-primary' %>
+        </div>
+    <% end %>
+    </div>
+  </div>
+</div>

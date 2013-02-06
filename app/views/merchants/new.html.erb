@@ -1,0 +1,9 @@
+<%= page_title "New Merchant Profile" %>
+
+<%= horizontal_form_for @merchant do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => "form", :object => f %>
+<div class="form-actions">
+  <%= f.submit "Create Profile", :class => 'btn btn-primary' %>
+</div>
+<% end %>

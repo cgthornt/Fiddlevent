@@ -1,0 +1,51 @@
+---
+# Update this file to modify the roles and permissions
+#
+# A role is essentially an upside-down tree of roles. The lower in the tree, the more privledged
+# the role is, while the higher up the role is, the least privledged the user is. A user lower
+# in the tree inherits any parent roles.
+#
+# Any label that is *not* assignable, description, permissions or name is assumed to be a child element
+#
+# Note that this is the inverse from permissions
+#
+# INHERITS from PARENT NODES
+
+nobody:
+  description: The root role with absolutely no permissions. This role should never be used
+  assignable: false
+  
+  # Guest
+  guest:
+    description: A user browsing the site who has not been logged in
+  
+  # Authenticated User
+  authenticated:
+    name: Authenticated User
+    description: A user who has logged into the site. This role should never be directly applied to a user
+    assignable: false
+    permissions: [user_self]
+      
+    # Customer
+    customer:
+      description: A customer is an authenticated user browsing for events
+      permissions: [customer_self]
+      
+    # Merchant
+    merchant:
+      description: A merchant is a user who can create a merchant profile
+      permissions: [merchant_self, event_create, event_self]
+    
+    # Moderator
+    moderator:
+      description: A moderator is a user who can flag user and events, which will hide them and flag it for pending review
+        
+      # Super Moderator
+      super_moderator:
+        description: A Super Moderator can delete events and ban users
+          
+        #Admin
+        admin:
+          name: Administrator
+          description: An administrator has nearly complete control over the Web site
+          permissions: [event_admin, merchant_admin, user_admin]

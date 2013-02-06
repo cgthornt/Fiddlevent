@@ -1,0 +1,35 @@
+<div class="row-fluid">
+  <div class="span12">
+    <p class="alert alert-info">
+      Filter sets are what allows us to match your events when users search using the left sidebar.
+      <b>It's more benificial to have a less and percise number of items than selecting all of them.</b>
+      <br>
+      Filter sets are not displayed to the public.
+    </p>
+  </div>
+</div>
+
+
+<div class="row-fluid">
+  <div class="span3">
+    <%= render :partial => 'search/sidebar' %>
+  </div>
+  
+  <div class="span9">
+
+  </div>
+  
+  
+  <div class="span9">
+    <div class="control-group">
+      <%= form.left_label :name %>
+      <div class="controls"><%= form.text_field :name %></div>
+    </div>
+    <div class="control-group">
+      <%= form.left_label :description %>
+      <div class="controls">
+        <%= form.text_area :description %>
+        <p class="help-block">A description is more for your reference as filter sets are not displayed to the public</p>
+      </div>
+    </div>
+

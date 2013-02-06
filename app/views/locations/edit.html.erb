@@ -1,0 +1,12 @@
+<%= page_title 'Edit Location' %>
+
+<%= form_for @location, :html => {:multipart => true, :class => 'form-horizontal' } do |f| %>
+  <%=f.show_errors %>
+  <%= render :partial => "form", :object => f %>
+  <div class="row">
+    <div class="form-actions span12">
+      <%= f.submit "Edit Location", :onClick => "return previewMap()", :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', @location.merchant.user, :class => 'btn' %>
+    </div>
+  </div>
+<%end%>

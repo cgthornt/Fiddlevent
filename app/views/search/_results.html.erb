@@ -1,0 +1,20 @@
+<div style="height: 10px;width:100%">&nbsp;</div>
+
+<%# No Search Results %>
+<% if @primary.blank? %>
+  <div class="alert alert-info" style="margin-left: auto; margin-right: auto;width: 80%;margin-top:25px">
+    <strong>Unable to Find Location</strong><br>
+    We couldn't understand the location "<strong><%= params[:query] %></strong>"
+  </div>
+<% elsif @all_events.blank? %>
+  <div class="alert alert-info" style="margin-left: auto; margin-right: auto;width: 80%;margin-top:25px">
+    <strong>No Events Found</strong><br>
+    We couldn't find any events based upon your search criteria. Try changing the results to the left and
+    increasing your search radius
+  </div>
+<% else %>
+    <%= render :partial => 'event', :collection => @all_events %>
+    <div class="search-paginator">
+      <%= paginate @events %>
+    </div>
+<% end %>

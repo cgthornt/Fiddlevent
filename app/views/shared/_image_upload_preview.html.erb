@@ -1,0 +1,14 @@
+        <ul class="thumbnails" style="width:auto;margin-top:15px;max-width: 600px">
+          <li class="span4" style="width:auto">
+            <a class="thumbnail"><%= image_tag(model.send(attribute).url(:medium)) %></a>
+          </li>
+          <li class="span2" style="width:auto">
+              <a class="thumbnail"><%= image_tag(model.send(attribute).url(:small)) %></a>
+          </li>
+          <li class="span2" style="width: auto;">
+            <a class="thumbnail" style="width"><%= image_tag(model.send(attribute).url(:thumbnail)) %></a>
+          </li>
+          <li class="span2" style="width: auto">
+            <a class="thumbnail" style="width"><%= image_tag(model.send(attribute).url(:tiny)) %></a>
+          </li>
+        </ul>

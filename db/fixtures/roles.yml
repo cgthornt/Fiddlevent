@@ -1,0 +1,73 @@
+--- 
+roles_006: 
+  name: Authenticated User
+  lft: 4
+  id: 3
+  parent_id: 1
+  description: A user who has logged into the site. This role should never be directly applied to a user
+  rgt: 15
+  assignable: 0
+  system_name: authenticated
+roles_007: 
+  name: Guest
+  lft: 2
+  id: 2
+  parent_id: 1
+  description: A user browsing the site who has not been logged in
+  rgt: 3
+  assignable: 1
+  system_name: guest
+roles_008: 
+  name: Nobody
+  lft: 1
+  id: 1
+  parent_id: 
+  description: The root role with absolutely no permissions. This role should never be used
+  rgt: 16
+  assignable: 0
+  system_name: nobody
+roles_001: 
+  name: Customer
+  lft: 13
+  id: 8
+  parent_id: 3
+  description: A customer is an authenticated user browsing for events
+  rgt: 14
+  assignable: 1
+  system_name: customer
+roles_002: 
+  name: Administrator
+  lft: 9
+  id: 7
+  parent_id: 6
+  description: An administrator has nearly complete control over the Web site
+  rgt: 10
+  assignable: 1
+  system_name: admin
+roles_003: 
+  name: Super Moderator
+  lft: 8
+  id: 6
+  parent_id: 5
+  description: A Super Moderator can delete events and ban users
+  rgt: 11
+  assignable: 1
+  system_name: super_moderator
+roles_004: 
+  name: Moderator
+  lft: 7
+  id: 5
+  parent_id: 3
+  description: A moderator is a user who can flag user and events, which will hide them and flag it for pending review
+  rgt: 12
+  assignable: 1
+  system_name: moderator
+roles_005: 
+  name: Merchant
+  lft: 5
+  id: 4
+  parent_id: 3
+  description: A merchant is a user who can create a merchant profile
+  rgt: 6
+  assignable: 1
+  system_name: merchant

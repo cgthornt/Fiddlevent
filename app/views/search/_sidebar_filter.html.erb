@@ -1,0 +1,24 @@
+<input type="hidden" name="query" value="<%= params[:query] %>">
+<ul class="nav nav-list">
+  <div>
+  <% Filter.get_all_hash.each do |group,filters| %>
+    <% gp = group.downcase.parameterize %>
+    <%= hidden_field("fhide", gp, :value => ((params[:fhide] && params[:fhide][group] == "1") ? "1" : "0"), :class => 'filter-flag', 'data-id' => gp) %>
+    <li class="nav-header">
+      <span id="toggle-filter-<%= gp %>" rel="tooltip" title="Select / Deselect All" class="toggle-filter" data-id="<%= gp %>" data-original-text="<%= group %>"><%= group %></span>
+    </li>
+    <div class="filter-children-<%= gp %>">
+    <% filters.each do |filter| %>
+      <li><label for="fid_<%= filter.id %>"><%= check_box('fid', filter.id, :checked => filter_checked(filter.id), :class => "filter-chk-parent-#{gp}") %> <a><%= filter.name %></a></label></li>
+    <% end %>
+    </div>
+  <% end %>
+  </div>
+
+  <% if params[:controller] == 'search' %>
+    <li class="divider"></li>
+    <li class="nav-header">Date Range</li>
+    <li class="filter-daterange">
+      <div class="input-prepend"><span class="add-on"><i class="icon-calendar"></i></span><%= text_field('f', 'time_start', :class => 'datetime-date dstart', :placeholder => 'Start Date', :value => @date_start) %></div>
+    </li>
+  <% end %>

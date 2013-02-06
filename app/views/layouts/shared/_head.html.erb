@@ -1,0 +1,19 @@
+	<meta name="description" content="Fiddlevent makes it easy to find events going on in your area. Find something to do today!">
+  <script type="text/javascript">
+  <!--
+  var user_timezone_offset = <%= Time.zone.utc_offset %>;
+  -->
+  </script>
+  
+  <link href="/favicon.ico" rel="icon" type="image/x-icon" />
+  <title><%= get_page_title + t(:site_name) %></title>
+  <%= stylesheet_link_tag :bootstrap, :application %>
+  <%= javascript_include_tag :application %>
+  <%= csrf_meta_tags %>
+  <%= yield :javascripts %>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->

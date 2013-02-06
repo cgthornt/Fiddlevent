@@ -1,0 +1,80 @@
+<% content_for :javascripts do %>
+  <%= javascript_include_tag "fb_events" %>
+<% end %>
+
+  <div class="control-group">
+    <%= form.left_label :name %>
+    <div class="controls">
+      <%= form.text_field :name, :style => 'width: 400px' %>
+      <p class="help-block">
+        Maximum length of 50 characters
+      </p>
+    </div>
+  </div>
+  
+  <!-- Fb Event -->
+  <div class="control-group">
+    <%= form.auto_label :facebook_url, :class => 'control-label' %>
+    <div class="controls">
+      <%= form.text_field :facebook_url %> <a class= "btn" id= "lookup_fb_url" href="#"><i class="icon-search"></i> Lookup </a>
+      <%= form.hidden_field :fb_event_id %>
+      <p class="help-block">
+        Copy and paste a Facebook event URL to link your event with a <b>public</b> Facebook event. <br>Selecting the
+        <em>lookup</em> button will overwrite any data you've currently entered.
+      </p>
+    <div class="alert" id="fb_url_error" style="display:none;margin-top:10px">
+      Invalid URL; please make sure the URL is correct and the event is public and try again
+    </div>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <%= form.left_label :event_image %>
+
+    <div class="controls">
+      <%= form.file_field :event_image %>
+      <p class="help-block">
+        An ideal event image should have the same width and height. If it does not, then it may be automatically cropped.
+        <% unless @event.event_image.file? %>
+          <br><em>
+            If you do not upload an image, then your event image will look like the ugly square below in search results.
+          </em>
+        <% end %>
+      </p>
+      <%= image_upload_preview(@event, :event_image) %>
+    </div>
+  </div>
+  
+  
+  <div class="control-group">
+    <%= form.auto_label :location, :class => 'control-label' %>
+    <div class="controls">
+      <%= form.select :location_id, @event.merchant.locations.order("name asc").collect{|l| [l.label_for_select, l.id] }, { :prompt => true }%>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <%= form.left_label :filter_set %>
+    <div class="controls">
+      <%= form.select :filter_set_id, @event.merchant.filter_sets.order("name asc").collect{|l| [l.name, l.id]}, {:prompt => true} %>
+    </div>
+  </div>
+  
+
+  
+  <div class="control-group">
+    <%= form.auto_label :description, :class => 'control-label' %>
+    <div class="controls">
+    <%= form.text_area :description, :style => 'width: 573px;height:200px'  %>
+    <p class="help-block">
+      Only the first 150 or so characters will be shown in search results
+    </p>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <%= form.auto_label :time_start, 'Date Range', :class => 'control-label' %>
+    <div class="controls">
+      <%= form.datetime_range :time_start, :time_stop %>
+    </div>
+  </div>

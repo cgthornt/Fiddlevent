@@ -1,0 +1,7 @@
+<input type="text" class="datetime-date" data-attr="<%= id %>" id="datetime_date_<%= id %>" value="<%= val.strftime("%m/%d/%Y") %>">
+<input type="text" class="datetime-time" data-attr="<%= id %>" id="datetime_time_<%= id %>" value="<%= val.strftime("%I:%M%p") %>">
+<span class="datetime-timezone-current" title="The timezone of this event"><b><%= current_timezone.name %></b> (<a class="datetime-timezone-change" data-attr="<%=id%>" href="#">change</a>) </span>
+<span class="datetime-timezone-select-container" id="datetime-timeone-select-container_<%= id %>" style="display:none">
+  <%= time_zone_select "tzone", id.to_s, ActiveSupport::TimeZone.us_zones, {:default => current_timezone.name}, :class => 'datetime-timezone-select', 'data-attr' => id %>
+</span>
+<%= hidden_field obj_name, attr, :class => 'hidden-datetime' %>

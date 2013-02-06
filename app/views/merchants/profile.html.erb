@@ -1,0 +1,74 @@
+<%= page_title @merchant.name, 'Merchant Profile' %>
+<div class="row-fluid">
+  
+  <div class="span3">
+    <div class="well sidebar-nav" style="padding:5px">
+      <ul class="nav nav-list">
+        <li class="nav-header">My Merchant Profile</li>
+        <li><%= link_to raw('<i class="icon-share"></i> Public Merchant Profile'), @merchant %></li>
+        <li><%= link_to raw('<i class="icon-th-list"></i> View my Events'), events_path %></li>
+        <li><%= link_to raw('<i class="icon-screenshot"></i> Create an Event'), new_event_path %> </li>
+        <li><%= link_to raw('<i class="icon-map-marker"></i> Create a Location'), new_location_path %> </li>
+        <li><%= link_to raw('<i class="icon-pencil"></i> Edit Merchant Profile'), edit_merchant_path(@merchant) %></li>
+      </ul>
+    </div>
+  </div>
+
+  <% if @merchant.locations.count == 0 %>
+    <div class="span8" style="text-align:center">
+      <div class="alert">
+      <b>You must first create a location before you can create any events.</b>
+      <%= link_to 'Create one Now', new_location_path %>
+      </div>
+    </div>
+  <% elsif @merchant.filter_sets.count == 0 %>
+    <div class="span8" style="text-align:center">
+      <div class="alert">
+      <b>You must first create a filter set before you can create any events.</b>
+      <%= link_to 'Create one Now', new_filter_set_path %>
+      </div>
+    </div>
+  <% else %>
+    <div class="span4">
+      <h2>Upcoming Events <small><%= link_to 'create', new_event_path %></small></h2>
+      <% if @upcoming_events.count == 0 %>
+      <p>You have no upcoming events.</p>
+      <% else %>
+      <ul>
+        <% @upcoming_events.each do |event| %>
+        <li><%= link_to event.name, event %></li>
+        <% end %>
+      </ul>
+      <% end %>
+      <p></p>
+    </div>
+    
+    <div class="span4">
+      <h2>My Locations <small><%= link_to 'create', new_location_path %></small></h2>
+      <% if @locations.count == 0 %>
+        <p>You have not defined any locations.</p>
+      <% else %>
+        <ul style="margin-left:20px;margin-bottom:15px;">
+        <% @locations.each do |loc| %>
+          <li><%= link_to loc.name, {:controller => :locations, :action => :edit, :id => loc} %> <em><%= loc.address %></em></li>
+        <% end %>
+        </ul>
+      <% end %>
+      <p></p>
+    </div>
+    
+    <div class="span4">
+      <h2>Filter Sets <small><%= link_to 'create', new_filter_set_path %></small></h2>
+      <% if @merchant.filter_sets.count == 0 %>
+        <p>You have no filter sets.
+      <% else %>
+        <ul class="merchant-dashboard-list">
+        <% @merchant.filter_sets.each do |set| %>
+          <li><%= link_to set.name, :controller => :filter_sets, :action => :edit, :id => set.id %></li>
+      <% end %>
+        </ul>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>

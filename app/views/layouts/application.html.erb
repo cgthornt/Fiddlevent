@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%= render :partial => 'layouts/shared/head' %>
+</head>
+<body>
+  <%= render :partial => "layouts/shared/navigation"  %>
+  <%= remote_modal('timezone-change', :controller => '/welcome', :action => 'set_timezone') %>
+  <div id="remote-modal-container" class="modal"></div>
+  <div class="container" id="content">
+    <%= render :partial => 'layouts/shared/flash', :object => flash %>
+    <%= yield :page_title %>
+    <%= render :partial => 'layouts/shared/breadcrumbs' %>
+    <%= yield %>
+    <hr>
+    <%= render :partial => 'layouts/shared/footer' %>
+  </div>
+</body>
+</html>

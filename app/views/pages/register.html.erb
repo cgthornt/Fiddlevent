@@ -1,0 +1,28 @@
+
+<h1 class="page-title">Register for Fiddlevent</h1>
+
+
+
+<div class="row">
+  <div class="span6">
+    <h2>Customer</h2>
+    <p>
+      Create a profile to save your searches for later use.
+    </p>
+    <p>
+      <%= link_to 'Create Profile', {:controller=>"registrations", :action=>"new", :type => :customer}, :class => 'btn' %>
+    </p>
+  </div>
+  
+  <div class="span6">
+    <h2>Merchant</h2>
+    <p>
+      Create a merchant profile with Fiddlevent to promote your events to a larger
+      audience.
+    </p>
+    
+    <p>
+      <%= link_to 'Create Profile', {:controller=>"registrations", :action=>"new", :type => :merchant}, :class => 'btn' %>
+    </p>
+  </div>
+</div>

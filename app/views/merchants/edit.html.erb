@@ -1,0 +1,10 @@
+<%= page_title "Edit Merchant Profile", @merchant.name %>
+
+<%= horizontal_form_for @merchant do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => "form", :object => f %>
+<div class="form-actions">
+  <%= f.submit "Edit", :class => 'btn btn-primary' %>
+  <%= link_to 'Cancel', @merchant, :class => 'btn' %>
+</div>
+<% end %>

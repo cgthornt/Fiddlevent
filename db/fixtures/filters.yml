@@ -1,0 +1,100 @@
+--- 
+filters_006: 
+  name: After College
+  created_at: 2012-04-17 00:46:36 Z
+  updated_at: 2012-04-17 00:46:36 Z
+  lft: 9
+  id: 11
+  parent_id: 7
+  description: Out of college? This is for you
+  rgt: 10
+filters_007: 
+  name: College
+  created_at: 2012-04-17 00:46:05 Z
+  updated_at: 2012-04-17 00:46:05 Z
+  lft: 3
+  id: 10
+  parent_id: 7
+  description: College Demographic
+  rgt: 4
+filters_008: 
+  name: High School
+  created_at: 2012-04-17 00:45:49 Z
+  updated_at: 2012-04-17 00:45:49 Z
+  lft: 7
+  id: 9
+  parent_id: 7
+  description: High school
+  rgt: 8
+filters_009: 
+  name: Middle School
+  created_at: 2012-04-17 00:45:35 Z
+  updated_at: 2012-04-17 00:45:35 Z
+  lft: 5
+  id: 8
+  parent_id: 7
+  description: Middle School
+  rgt: 6
+filters_010: 
+  name: Demographic
+  created_at: 2012-04-17 00:45:18 Z
+  updated_at: 2012-04-17 00:45:18 Z
+  lft: 2
+  id: 7
+  parent_id: 1
+  description: Your Demographic
+  rgt: 13
+filters_011: 
+  name: Root
+  created_at: 2012-02-29 21:47:41 Z
+  updated_at: 2012-02-29 21:47:41 Z
+  lft: 1
+  id: 1
+  parent_id: 
+  description: The root.
+  rgt: 22
+filters_001: 
+  name: Food and Restaurants
+  created_at: 2012-04-17 01:32:14 Z
+  updated_at: 2012-04-17 01:32:14 Z
+  lft: 19
+  id: 16
+  parent_id: 13
+  description: Find special events and deals involving food
+  rgt: 20
+filters_002: 
+  name: Outdoors
+  created_at: 2012-04-17 01:31:35 Z
+  updated_at: 2012-04-17 01:31:35 Z
+  lft: 17
+  id: 15
+  parent_id: 13
+  description: Hiking, backpacking, etc
+  rgt: 18
+filters_003: 
+  name: Bars / Night Clubs
+  created_at: 2012-04-17 01:31:22 Z
+  updated_at: 2012-04-17 01:31:22 Z
+  lft: 15
+  id: 14
+  parent_id: 13
+  description: Interested in going to bars or night clubs? This is your place!
+  rgt: 16
+filters_004: 
+  name: Interests
+  created_at: 2012-04-17 01:30:26 Z
+  updated_at: 2012-04-17 01:30:26 Z
+  lft: 14
+  id: 13
+  parent_id: 1
+  description: Things that you may be interested in
+  rgt: 21
+filters_005: 
+  name: Family
+  created_at: 2012-04-17 01:07:03 Z
+  updated_at: 2012-04-17 01:07:03 Z
+  lft: 11
+  id: 12
+  parent_id: 7
+  description: Family-oriented events
+  rgt: 12

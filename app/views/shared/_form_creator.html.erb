@@ -1,0 +1,31 @@
+<%= form_for(builder.model, :html => {:class => 'form-horizontal'}) do |f| %>
+  <%= f.show_errors %>
+  <fieldset>
+    
+    <% builder.attributes.each do |attribute| %>
+      <div class="control-group">
+      <% if attribute.is_a? Proc %>
+        <%= raw(capture(&attribute)) %>
+      <% else %>
+      
+        <% unless attribute.options.label == false %>
+          <%= f.label attribute.name, raw((attribute.options.label == true ? builder.model.class.human_attribute_name(attribute.name) : attribute.options.label) + (attribute.options.required ? ' <span class="required">*</span>' : '')), :class => 'control-label' %>
+        <% end %>
+        <div class="controls">
+          <%= f.send(attribute.type, attribute.name) %>
+          <% unless attribute.options.hint.blank? %>
+            <p class="help-block"><%= raw(attribute.options.hint) %></p>
+          <% end %>
+        </div>
+      <% end %>
+      </div>
+    <% end %>
+    <% unless builder.btns.blank? %>
+    <div class="form-actions">
+      <%= f.submit builder.btns.first, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', builder.btns.second, :class => 'btn' unless builder.btns.second.blank? %>
+    </div>
+    <% end %>
+    
+  </fieldset>
+<% end %>

@@ -1,0 +1,8 @@
+<ul class= "filter-selection">
+<%Filter.each_with_level(Filter.root.descendants) do |filter, level|%>
+  <li class= "depth-<%=level%>">
+    <input type= "checkbox" name= "filter[<%=filter.id%>]" value= "1" id="filter-<%= filter.id %>">
+    <label for= "filter-<%=filter.id%>"><%=filter.name%></label>
+  </li>
+<%end%>
+</ul>

@@ -1,0 +1,40 @@
+.control-group textarea {
+  height: 100px;
+  width: 350px;
+}
+
+.datetime-date, .datetime-time{
+  width: 100px !important;
+}
+
+.timeEntry_control {
+  display: none !important;
+}
+
+.datetime-time {
+  margin-right: 0px !important;
+}
+
+label .required {
+  color: #9E1313;
+  font-weight: bold;
+}
+
+.datetime-range {
+  .datetime-to {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .datetime-end {
+  }
+}
+
+.modal form {
+  margin: 0px;
+  padding: 0px;
+}
+
+textarea.wysiwyg {
+  width: 600px;
+  height: 200px;
+}

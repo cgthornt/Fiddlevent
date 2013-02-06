@@ -1,0 +1,26 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  site_name: Fiddlevent
+  hello: "Hello world"
+  
+  # Commonly used terms
+  common:
+    search: search
+    find: find
+    
+  
+  # Navigation
+  navigation:
+    home: Home
+    login: Login
+    register: Register
+    logout: Log out
+  
+  # View Translations
+  welcome:
+    index:
+      begin_search: Find something to do
+      welcome_to: Welcome to
+      location: Location

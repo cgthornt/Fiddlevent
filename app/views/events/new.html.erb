@@ -1,0 +1,13 @@
+<%= page_title 'New Event' %>
+
+<%= horizontal_old_form_for @event do |form| %>
+  <%= form.error_messages %>
+  <fieldset>
+    <%= render :partial => 'form', :object => form %>
+  <div class="form-actions">
+    
+    <%= form.submit "Create Event", :class => 'btn btn-primary' %>
+    <%= link_to 'Cancel', current_user, :class => 'btn'  %>
+  </div>
+  </fieldset>
+<% end %>

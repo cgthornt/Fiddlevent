@@ -1,0 +1,15 @@
+<!-- Event Cart -->
+<% liked_events = get_liked_events %>
+<input id="cart-toggle-value" type="hidden" value="<%= cookies[:cart_toggle].nil? ? 0 : cookies[:cart_toggle] %>" name="cart_toggle">
+<div id="cart-items">
+  <div id="cart-info" class="infobox" style="<%= 'display:none' if liked_events.length != 0 %>">
+    <p>You do not have any liked events.</p>
+    <p>Try liking an event to easily keep track of events that seem interesting to you.</p>
+    <p><strong style="color:#666;">Drag an event here to begin.</strong></p>
+  </div>
+  <% if liked_events.length != 0 %>
+    <ul id="cart-sortable"><%= render :partial => 'shared/cart_item', :collection => liked_events %></ul>
+  <% else %>
+    <ul id="cart-sortable"></ul>
+  <% end %>
+</div>

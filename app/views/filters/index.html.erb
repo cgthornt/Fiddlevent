@@ -1,0 +1,13 @@
+<% content_for :javascripts do %>
+  <%= javascript_include_tag 'jquery.ui.nestedSortable' %>
+<% end %>
+<%= page_title "Filter Tree" %>
+<% Filter.get_all_hash.each do |group,filters| %>
+<b><%= group %></b>
+<ul><% filters.each do |f| %><li><%= link_to f.name, edit_filter_path(f) %></li><% end %></ul>
+<% end %>
+
+
+<div class="form-actions">
+  <%= link_to 'New Filter', new_filter_path, :class => 'btn btn-primary' %>
+</div>

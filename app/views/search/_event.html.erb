@@ -1,0 +1,10 @@
+<div class="search-result" data-eid="<%= event.id %>">
+    <%= image_tag(event.event_image.url(:thumbnail), :class => 'result-icon') %>
+  <h3><%= event.name %> <small><%= event.merchant.name %></small></h3>
+  <div class="search-summary">
+    <%= truncate(sanitize(event.description, :tags => %w()), :length => 225) %>
+  </div>
+  <div class="search-actions">
+    <%= event.time_to_s %> &bull; <%= event.location.to_s %>
+  </div>
+</div>

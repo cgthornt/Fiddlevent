@@ -1,0 +1,18 @@
+<%= page_title 'View Filter Set', @filter_set.name %>
+<p><%= @filter_set.description %></p>
+
+<h3>Filter View</h3>
+<p>
+<ul class= "filter-selection">
+<%Filter.each_with_level(Filter.root.descendants) do |filter, level|%>
+  <% next unless @filter_set.has_filter?(filter) %>
+  <li class= "depth-<%=level%>">
+    <%= filter.name %>
+  </li>
+<%end%>
+</ul>
+</p>
+<div class="form-actions">
+  <%= link_to 'Edit', {:action => 'edit', :id => @filter_set.id }, :class => 'btn btn-primary' %>
+  <%= link_to 'Back', @filter_set.merchant.user, :class => 'btn' %>
+</div>

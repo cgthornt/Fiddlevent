@@ -1,0 +1,117 @@
+
+#cart {
+  position: fixed;
+  top: 130px;
+  z-index: 2;
+  
+  #cart-content {
+    float:left;
+    background: #fff;
+    height: 450px;
+    width: 280px;
+    -moz-box-shadow: 0 0 2px #888;
+    -webkit-box-shadow: 0 0 2px #888;
+    box-shadow: 0 0 2px #888;
+    overflow: hidden;
+    
+    h3 {
+      font-weight: normal;
+      margin-bottom: 0px;
+      padding: 5px;
+      border-bottom: 1px solid #ddd;
+      background: #eee;
+    }
+    
+    
+    #cart-items {
+      height: 355px;
+      overflow: auto;
+      padding: 5px;
+
+      .infobox {
+        margin-top: 110px;
+        p {
+          text-align: center;
+          padding: 5px;
+        }
+      }
+      
+      .liked-event {
+        font-size: 11px;
+        line-height: 12px;
+        height: 52px;
+        margin-top : 5px;
+        border-top: 1px solid #eee;
+        padding: 3px;
+        cursor: hand;
+        cursor: pointer;
+        
+        &:hover {
+          background: #eee;
+        }
+        
+        img {
+          float: left;
+          margin-right: 5px;
+        }
+        h4 {
+          font-size: 12px;
+        }
+        
+        .rm-event {
+          float: right;
+          padding:2px;
+          &:hover {
+            background: #fff;
+            
+          }
+        }
+        
+      }
+    }
+    
+    #cart-buttons {
+      text-align: right;
+      padding-top: 8px;
+      margin-top: 0px;
+    }
+  }
+  
+  #cart-tab {
+    float: right;
+    margin-top: 100px;
+    width: 12px;
+    overflow: hidden;
+    padding: 5px 5px 5px 0;
+    a {
+      height: 150px;
+      background: #EBEBEB;
+      cursor: hand;
+      cursor: pointer;
+      z-index: 3;
+      
+    }
+  }
+  
+  .result-hovering {
+    border: 2px dashed #4BA314;
+    padding: 3px !important;
+  }
+
+}
+
+
+/** Style while event result is being dragged */
+.search-result.ui-draggable-dragging {
+  /* width: 300px;
+  margin-left: 450px;
+  overflow: hidden;
+  h3 {
+    overflow: hidden;
+    width: 200px;
+    height: 30px;
+  }
+  .search-actions {
+    display: none;
+  } */
+}

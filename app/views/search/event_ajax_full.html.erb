@@ -1,0 +1,48 @@
+<div id="event-result-full">
+  <div id="event-details">
+    
+    <!-- Event Title -->
+    <div class="row">
+      <div class="span8"><div class="page-header" style="margin-bottom: 0"><h1><%= @event.name %> <small><%= @event.merchant.name %></h1></div></div>
+    </div>
+    
+    <div class="row">
+      <div class="span8">
+        <div class="event-time event-time-2">
+          <i class="icon-time"></i> <%= @event.time_to_s %>
+          <i class="icon-map-marker"></i> <%= @event.location.to_s %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span6" style="margin-top:5px">
+        <%= show_location_map(@event.location, '120px') %>
+        <hr>
+        <%= format_long_text(@event.description) %>
+      </div>
+      <!-- Event Image -->
+      <div class="span2" style="padding-top:0px;width:170px">
+        <a class="thumbnail"><%= image_tag(@event.event_image.url(:small)) %></a>
+        <ul style="margin-top:20px" class="nav nav-list">
+          <li>
+            <% if !event_liked?(@event.id) %>
+              <%= link_to '<i class="icon-plus-sign"></i> Like Event'.html_safe, '#', :id => 'event-like-button', 'data-id' => @event.id %>
+            <% else %>
+              <%= link_to '<i class="icon-remove-sign"></i> Unlike Event'.html_safe, '#', :id => 'event-unlike-button', 'data-id' => @event.id %>
+            <% end %>
+          </li>
+          <li><a href="#" id="event-subscribe-link"><i class="icon-exclamation-sign"></i> Subscribe</a></li>
+          <li class="divider"></li>
+          <% if @event.facebook? %><li><a href="<%= @event.facebook_url %>" target="_blank">View on Facebook</a></li><% end %>
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  </div>
+  <div class="form-actions">
+    <a id="event-result-close" class="btn btn-primary" style="vertical-align:middle">&laquo; Back</a>
+  </div>
+</div>

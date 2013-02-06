@@ -1,0 +1,51 @@
+<% @page_title = 'Search Results' %>
+<% content_for :javascripts do  %>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCJNx1Kp1iBYr_Ccs2rpq4Ry2Cuv_DTCIc&sensor=false"></script>
+  <%= stylesheet_link_tag :search_page %>
+  <%= javascript_include_tag :maps, :search_page %>
+<% end %>
+
+<form method="post" action="/search" class="form-search">
+<div class="modal" id="viewEventModal" style="display: none;width:600px"></div>
+<%# render :partial => 'shared/shopping_cart' %>
+<div class="container-fluid">
+  
+  <div class="row-fluid">
+    
+    <div class="span3" style="margin-top: 20px">
+      <%= render :partial => 'sidebar2' %>
+    </div>
+    <div class="span9" id="results-container">
+      
+      <!-- Page Header -->
+      <div class="page-header" style="margin-bottom: 1px">
+        <% unless params[:query].blank? %>
+        <div class="search-results-form">
+          <%= render :partial => 'location_form' %>
+        </div>
+        <% end %>
+        <h1>Search Results <small><%= (@primary.blank? ? "Location not Found" : @primary[:full_name]) unless params[:query].blank? %></small></h1>
+      </div>
+      
+      <% if params[:query].blank? %>
+        <div class="search-prompt">
+          <div class="prompt-label">Enter a Location</div>
+          <%= render :partial => 'location_form' %>
+        </div>
+      <% else %>
+        <%= render :partial => 'results' %>
+      <% end %>
+      <% if @results.count > 1 %>
+        <p class="search-alternative"><em>Other possible locations: </em>
+        <% @results.each_with_index do |result,index| %>
+          <% next if index == 0 %>
+          <%= link_to(result[:full_name], :query => result[:short_name]) %>
+        <% end %>
+        </p>
+      <% end %>
+      
+
+    </div>
+  </div>
+</div>
+</form>

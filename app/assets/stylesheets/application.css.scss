@@ -1,0 +1,134 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require form
+ *= require cart
+ *= require jquery.ui.all
+*/
+
+html {
+
+}
+
+body {
+   padding-bottom: 0px;
+
+}
+
+
+#content {
+   padding: 60px 20px 0px 20px;
+   background: #fff;
+ 
+}
+
+
+
+.alert-notice {
+  background-color: #DFF0D8;
+  border-color: #D6E9C6;
+  color: #468847;
+}
+ 
+
+#remote-modal-container {
+  display: none;
+}
+ 
+.page-header {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0px;
+  margin-bottom: 1px;
+  height: auto;
+  h1 {
+   font-size: 28px;
+   margin-bottom: 0px;
+   padding-bottom: 0px;
+   font-weight: normal;
+  }
+}
+
+
+
+.field_with_errors input {
+  border-color: #C09853;
+}
+
+.field_with_errors label {
+  color: #C09853;
+}
+
+.filter-selection{
+ list-style: none;
+ vertical-align: middle;
+ label{
+  display: inline-block;
+ }
+ .depth-1{
+  margin-left: 0px;
+ }
+ .depth-2{
+  margin-left: 20px;
+ }
+}
+
+.event-time {
+  border-bottom: 1px solid #eee;
+  margin: 0 0 15px 0;
+  padding: 0 0 10px 15px;
+  color: #444;
+}
+
+.search-results-form {
+  float:right;
+  padding-top: 7px;
+  input {
+    height: 20px;
+  }
+  button {
+    height: 30px;
+  }
+}
+
+.search-alternative {
+  margin-top: 0;
+}
+
+/** Filter sidebar where we can select different filters */
+.filter-sidebar {
+  padding: 5px 5px 10px 5px;
+  label {
+    cursor: hand; cursor: pointer;
+    input[type="checkbox"] {
+      display: inline-block;
+    }
+    a {
+      text-decoration: none;
+    }
+  }
+  label {
+    a, input {
+      vertical-align: middle;
+    }
+  }
+  .sidebar-submit {
+    text-align: right;
+  }
+  .toggle-filter {
+    cursor: hand;
+    cursor: pointer;
+  }
+  
+  
+  
+}
+
+.event_row {
+ height: 85px;
+ img {
+  float:left;
+  padding-right: 5px;
+ }
+}

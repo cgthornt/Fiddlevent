@@ -1,0 +1,45 @@
+<%= content_for :javascripts do %>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCJNx1Kp1iBYr_Ccs2rpq4Ry2Cuv_DTCIc&sensor=false"></script>
+  <%= javascript_include_tag 'maps', :smartinfowindow %>
+<% end %>
+<div class="row">
+  <div class="span2" style="padding-top:10px;width:170px">
+    <div class="thumbnail"><%= image_tag(@event.event_image.url(:small)) %></div>
+    <ul style="margin-top:20px" class="nav nav-list">
+      <% if @event.facebook? %><li><a href="<%= @event.facebook_url %>" target="_blank">View on Facebook</a></li><% end %>
+    </ul>
+  </div>
+  <div class="span10">
+    <%= page_title @event.name, "by " + link_to(@event.merchant.name, @event.merchant) %>
+    <div class="row">
+      <div class="span6">
+        <div class="event-time">
+          <i class="icon-time"></i> <%= @event.time_to_s %>
+        </div>
+        <%= format_long_text(@event.description) %>
+      </div>
+      
+      <div class="span4">
+        <div class="well">
+          <% opts = {:latitude => @location.latitude, :longitude => @location.longitude, :zoom => 14} %>
+          <div class="map-container" style="height:200px" data-options="<%= ActiveSupport::JSON.encode(opts) %>">
+            <div data-options="<%= ActiveSupport::JSON.encode(opts) %>"></div>
+          </div>
+          <div style="text-align:center;margin-top:5px">
+            <%= @event.location.address %>
+            <%= @event.location.address_2 unless @location.address_2.blank? %>
+            | <%= "#{@location.city}, #{@location.state.code} #{@location.zip}" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="span12 form-actions">
+    <% if can? :edit, @event %>
+      <%= link_to 'Edit Event', {:action => :edit, :id => @event.id}, :class => 'btn btn-primary' %>
+    <% end %>
+    <%= link_to 'Cancel', @event.merchant.user, :class => 'btn' %>
+  </div>
+</div>

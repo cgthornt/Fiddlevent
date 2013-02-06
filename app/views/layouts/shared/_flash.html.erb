@@ -1,0 +1,12 @@
+<% unless flash.blank? %>
+<div id="flash-messages">
+  <div class="container">
+  <% flash.each do |level,message| %>
+    <div class="alert alert-<%= level %>"><a class="close" data-dismiss="alert">x</a>
+    <% if level == :notice or level == :success %><i class="icon-ok"></i> &nbsp;<% end %>
+    <%= message %> 
+    </div>
+  <% end %>
+  </div>
+</div>
+<% end %>

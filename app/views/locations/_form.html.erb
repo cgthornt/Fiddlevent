@@ -1,0 +1,91 @@
+<%= content_for :javascripts do %>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCJNx1Kp1iBYr_Ccs2rpq4Ry2Cuv_DTCIc&sensor=false"></script>
+  <%= javascript_include_tag 'locations_map' %>
+<% end %>
+
+<div class="row">
+  <div class="span12">
+  <p class="alert alert-info">
+    We require an exact location so we can do location-based searching.
+  </p>
+  </div>
+</div>
+
+<div class="row">
+  
+  <div class="span6">
+    
+    <!-- Name -->
+    <div class="control-group">
+      <%= form.left_label :name %>
+      <div class="controls">
+        <%= form.text_field :name %>
+        <p class="help-block">The location name will show up in search results</p>
+      </div>
+    </div>
+    
+    <!-- Desc -->
+    <div class="control-group">
+      <%=form.left_label :description %>
+      <div class="controls">
+        <%= form.text_area :description %>
+        <p class="help-block">The description is more for your reference, but we may display this publicly in the future</p>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= form.left_label :address  %>
+      <div class="controls"><%= form.text_field :address %></div>
+    </div>
+    
+    <div class="control-group">
+      <%= form.left_label :address_2 %>
+      <div class="controls"><%= form.text_field :address_2 %></div>
+    </div>
+    
+    <div class="control-group">
+      <%=form.left_label :city %>
+      <div class="controls"><%= form.text_field :city %></div>
+    </div>
+    
+    <div class="control-group">
+      <%= form.left_label :state  %>
+      <div class="controls"><%= form.select :state_id, select_options_for_states, :include_blank => true %></div>
+    </div>
+    
+    <div class="control-group">
+      <%= form.left_label :zip %>
+      <div class="controls"><%= form.text_field :zip %></div>
+    </div>
+    
+    <!-- Image -->
+    <div class="control-group">
+      <%= form.left_label :location_image  %>
+      <div class="controls">
+        <%= form.file_field :location_image %>
+        <p class="help-block">
+          You may optionally upload an image for this location to help users visualise what this location looks like
+        </p>
+        <%= image_upload_preview(@location, :location_image) %>
+        </div>
+    </div>
+    
+    <%= form.hidden_field :latitude %>
+    <%= form.hidden_field :longitude %>
+    
+  </div>
+  <div class="span6">
+    
+    <!-- Map Preview -->
+    <div class="well">
+      <h3>Map Preview</h3>
+      <div id="google-maps-locations-form" style="height:325px;margin-top:10px"></div>
+        <div style="text-align:center;padding-top:15px;">
+          <a id="location-form-preview" href="#preview">Preview Location</a>
+      </div>
+    </div>
+    
+
+    
+  </div>
+</div>

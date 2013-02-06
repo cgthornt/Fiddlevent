@@ -1,0 +1,21 @@
+<% @page_title = "Find Something to Do" %>
+<% content_for :javascripts do %>
+  <%= stylesheet_link_tag :welcome %>
+<% end %>
+<div class="hero-unit" id="search-box">
+  <h2>Find Something to Do</h2>
+  <form method="post" action="/search" class="form-search">
+    <div class="input-append">
+    <input type="text" class="span8" name="query" placeholder="Location..."><button type="submit" class="btn"><i class="icon-search"></i> Search</button>
+    </div>
+  </form>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <h2>Having nothing to do is a thing of the past</h2>
+    <p>
+      Fiddlevent allows you to find fun events going on near you easily.
+    </p>
+  </div>
+</div>
