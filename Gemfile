@@ -55,3 +55,5 @@ gem 'haml'
 gem 'the_sortable_tree'
 
 gem 'datagrid'
+
+gem 'american_date'
