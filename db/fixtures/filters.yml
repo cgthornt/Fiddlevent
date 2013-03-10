@@ -1,9 +1,41 @@
 ---
 filters_001:
-  id: 1
-  name: This is a cool group!
-  description: Description
-  created_at: 2012-09-12 18:28:55.000000000 Z
-  updated_at: 2012-09-12 18:28:55.000000000 Z
-  group_name: Some Group
-  position: 
+  id: 6
+  name: Bars
+  description: Bars and drinking
+  created_at: 2013-03-10 04:48:14.000000000 Z
+  updated_at: 2013-03-10 04:48:14.000000000 Z
+  group_name: Activity Type
+  position: 2
+filters_002:
+  id: 5
+  name: Food
+  description: Food-type activities
+  created_at: 2013-03-10 04:48:03.000000000 Z
+  updated_at: 2013-03-10 04:48:03.000000000 Z
+  group_name: Activity Type
+  position: 1
+filters_003:
+  id: 4
+  name: Teen
+  description: For those around the 13 - 19 year range
+  created_at: 2013-03-10 04:47:45.000000000 Z
+  updated_at: 2013-03-10 04:47:45.000000000 Z
+  group_name: Demographic Type
+  position: 3
+filters_004:
+  id: 3
+  name: College
+  description: College type activities should go here
+  created_at: 2013-03-10 04:47:18.000000000 Z
+  updated_at: 2013-03-10 04:47:18.000000000 Z
+  group_name: Demographic Type
+  position: 2
+filters_005:
+  id: 2
+  name: Family Activities
+  description: Family-type activities should be here
+  created_at: 2013-03-10 04:46:35.000000000 Z
+  updated_at: 2013-03-10 04:46:35.000000000 Z
+  group_name: Demographic Type
+  position: 1

@@ -1,1 +1,13 @@
 <%= page_title "Edit Filter" %>
+<%= horizontal_form_for @filter do |f| %>
+  <%=f.error_messages %>
+  <%= render :partial => "form", :object => f %>
+<div class="form-actions">
+  <%= f.submit "Update Filter", :class => 'btn btn-primary' %>
+  <%= link_to 'Cancel', filters_path, :class => 'btn' %>
+  
+  <%= link_to 'Delete Filter', filter_path(@filter), :class => 'btn btn-danger', :style => 'float:right', :confirm => 'Are you sure?', :method => :delete %>
+  </style>
+  </style>
+</div>
+<%end%>

@@ -9,13 +9,21 @@ class FiltersController < ApplicationController
   def create
     if @filter.save
       flash[:success] = "Filter has been created"
-      redirect_to filters_path
+      redirect_to :action => :new
     else
       render :action => :new
     end
   end
   
   def edit
+  end
+  
+  def update
+    if @filter.update_attributes(params[:filter])
+      flash[:success] = "Filter has been updated!"
+      return redirect_to :action => :index
+    end
+    
   end
   
   def destroy
