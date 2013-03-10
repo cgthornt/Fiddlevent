@@ -4,10 +4,10 @@
 <% end %>
 <div class="hero-unit" id="search-box">
   <h2>Find Something to Do</h2>
-  <form method="post" action="/search" class="form-search">
+  <%= form_tag({:action => :index, :controller => :search}, :method => :post, :class => 'form-search') do %>
     <input type="text" class="span8" name="query" placeholder="Location...">
     <button type="submit" class="btn"><i class="icon-search"></i> Search</button>
-  </form>
+  <% end %>
 </div>
 
 <div class="row">

@@ -5,7 +5,7 @@
   <%= javascript_include_tag :maps, :search_page %>
 <% end %>
 
-<form method="post" action="/search" class="form-search">
+<%= form_tag({:action => :index}, :method => :post, :class => 'form-search') do %>
 <div class="modal" id="viewEventModal" style="display: none;width:600px"></div>
 <%# render :partial => 'shared/shopping_cart' %>
 <div class="container-fluid">
@@ -48,4 +48,4 @@
     </div>
   </div>
 </div>
-</form>
+<% end %>
