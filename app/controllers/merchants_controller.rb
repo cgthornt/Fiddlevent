@@ -14,7 +14,7 @@ class MerchantsController < ApplicationController
     @merchant.user = current_user
     if @merchant.save
       flash[:success] = "Merchant profile has been created"
-      redirect_to @merchant.user
+      redirect_to :controller => :merchant, :action => :profile
     else
       render :action => :new
     end

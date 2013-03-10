@@ -2,6 +2,7 @@
 log/*
 tmp/*
 public/assets
+public/system
 
 # Komodo IDE
 # *.komodoproject # Might be useful to save project

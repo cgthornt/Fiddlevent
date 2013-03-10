@@ -26,8 +26,8 @@ module ApplicationHelper
     if current_user and (current_user.role? :merchant || !current_merchant.blank?)
       children = ActiveSupport::OrderedHash.new
       children["My Profile"] = {:url => {:controller => '/merchants', :action => :profile}}
-      children["Events"] = {:url => {:controller => '/events', :action => :index}}
-      children["Locations"] = {:url => {:controller => '/locations', :action => :index}}
+      # children["Events"] = {:url => {:controller => '/events', :action => :index}}
+      # children["Locations"] = {:url => {:controller => '/locations', :action => :index}}
       nav1["Merchant Profile"] = {:url => '#', :url_options => {:id => 'merchant_profile_links'}, :children => children}
     end
     
@@ -41,7 +41,7 @@ module ApplicationHelper
 
     
     if user_signed_in?
-      nav2["Profile"] = {:url => {:controller => :users, :action => :show, :id => (current_user.nil? ? 0 : current_user.id) }}
+      # nav2["Profile"] = {:url => {:controller => :users, :action => :show, :id => (current_user.nil? ? 0 : current_user.id) }}
       nav2["Log Out"] = {:url => destroy_user_session_path, :url_options => {:method => :delete}}
     else
       nav2["Register"] = {:url => {:controller => '/pages', :action => :register}}

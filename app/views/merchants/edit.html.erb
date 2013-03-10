@@ -5,6 +5,6 @@
   <%= render :partial => "form", :object => f %>
 <div class="form-actions">
   <%= f.submit "Edit", :class => 'btn btn-primary' %>
-  <%= link_to 'Cancel', @merchant, :class => 'btn' %>
+  <%= link_to 'Cancel', {:action => :profile}, :class => 'btn' %>
 </div>
 <% end %>

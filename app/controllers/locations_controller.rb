@@ -1,7 +1,8 @@
 class LocationsController < ApplicationController
   load_and_authorize_resource
   skip_before_filter :authenticate_user!, :only => :show
-  add_breadcrumb "Profile", :users_path
+  # add_breadcrumb "Profile", {:controller => :merchants, :action => :profile}
+  before_filter :add_breadcrumb_for_curr_merchant
   
   
   def new

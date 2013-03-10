@@ -15,7 +15,7 @@ $(function(){
     console.log(url.attr('host'));
     console.log(url.attr('path'));
     var fb_id= url.segment(2);
-    var api_url= "https://graph.facebook.com/" + fb_id;
+    var api_url= "https://graph.facebook.com/" + fb_id + "?access_token=AAACEdEose0cBADI9o6hSEhAaLZAoFiwvnBzLpuee1IzwNxdbmsIZCZChTQghJfBL2dgMMHD9J3TASosahrXw86bnC9mXRwn0oXfMjpY8SCxomEyniJA";
     
     $("#fb_url_error").fadeOut();
     
