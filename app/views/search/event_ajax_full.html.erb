@@ -2,15 +2,15 @@
   <div id="event-details">
     
     <!-- Event Title -->
-      <div class="span8"><div class="page-header" style="margin-bottom: 0"><h1><%= @event.name %> <small><%= @event.merchant.name %></h1></div></div>
+      <div class="span12"><div class="page-header" style="margin-bottom: 0"><h1><%= @event.name %> <small><%= @event.merchant.name %></h1></div></div>
     
-      <div class="span8">
+      <div class="span12">
         <div class="event-time event-time-2">
           <i class="icon-time"></i> <%= @event.time_to_s %>
           <i class="icon-map-marker"></i> <%= @event.location.to_s %>
         </div>
       </div>
-      <div class="span6" style="margin-top:5px">
+      <div class="span8" style="margin-top:5px">
         <%= show_location_map(@event.location, '120px') %>
         <hr>
         <%= format_long_text(@event.description) %>
@@ -26,7 +26,7 @@
               <%= link_to '<i class="icon-remove-sign"></i> Unlike Event'.html_safe, "#event#{@event.id}", :id => 'event-unlike-button', 'data-id' => @event.id %>
             <% end %>
           </li>
-          <li><a href="#" id="event-subscribe-link"><i class="icon-exclamation-sign"></i> Subscribe</a></li>
+          <!-- <li><a href="#" id="event-subscribe-link"><i class="icon-exclamation-sign"></i> Subscribe</a></li> -->
           <li class="divider"></li>
           <% if @event.facebook? %><li><a href="<%= @event.facebook_url %>" target="_blank">View on Facebook</a></li><% end %>
         </ul>
@@ -36,7 +36,7 @@
   
   
   </div>
-  <div class="form-actions span10">
+  <div class="form-actions span12">
     <a id="event-result-close" class="btn btn-primary" style="vertical-align:middle">&laquo; Back</a>
   </div>
 </div>
