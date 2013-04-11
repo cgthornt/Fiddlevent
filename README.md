@@ -6,6 +6,11 @@ ASU [Computer Science Department](http://cidse.engineering.asu.edu/).
 
 This README file assumes unfamiliarity with Ruby on Rails development.
 
+## Related Publications
+As a requirement for the ASU honors college, I also had to write a paper. A link to the paper may be
+found on [my official blog](http://cgthornt.com/2013/04/fiddlevent-my-honors-creative-project/).
+Obviously, this paper is not released under any open-source liscence as it is an *academic* paper.
+
 ## About Fiddlevent
 *Fiddlevent* is an event searching Web site developed from scratch. Fiddlevent contains two different types of users:
 
